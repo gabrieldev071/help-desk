@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      var rootElement = document.getElementById("root");
+
+      const state = { name: "12" };
+      const App = () => {
+
+        const handleClick = () => {
+          //  Object.assign(state, {name: "Gabriel Souza"})  //estado atual, novo objeto
+          //  renderApp();
+          setState({name: "Gabriel Souza1"})
+        }
+
+        return (
+          <div>
+            <h1>{state.name}</h1>
+            <button onClick={handleClick}>Alterar nome</button>
+          </div>
+        );
+      };
+
+      const setState = (newState) => {
+        Object.assign(state, newState)  //estado atual, novo objeto
+        renderApp();
+      }
+
+      const renderApp = () => ReactDOM.render(<App />, rootElement);
+      renderApp();
+
+    </script>
+  </body>
+</html>
